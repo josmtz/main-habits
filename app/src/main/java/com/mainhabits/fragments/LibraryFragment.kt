@@ -1,4 +1,4 @@
-package com.josuemartinez.mainhabits.fragments
+package com.mainhabits.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,8 +8,8 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.josuemartinez.mainhabits.databinding.FragmentLibraryBinding
-import com.josuemartinez.mainhabits.models.LibraryViewModel
+import com.mainhabits.databinding.FragmentLibraryBinding
+import com.mainhabits.models.LibraryViewModel
 
 class LibraryFragment : Fragment() {
 

@@ -1,4 +1,4 @@
-package com.josuemartinez.mainhabits.models
+package com.mainhabits.models
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

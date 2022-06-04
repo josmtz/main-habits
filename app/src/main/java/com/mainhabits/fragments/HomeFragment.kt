@@ -1,4 +1,4 @@
-package com.josuemartinez.mainhabits.fragments
+package com.mainhabits.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,9 +8,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.josuemartinez.mainhabits.R
-import com.josuemartinez.mainhabits.databinding.FragmentHomeBinding
-import com.josuemartinez.mainhabits.models.HomeViewModel
+import com.mainhabits.databinding.FragmentHomeBinding
+import com.mainhabits.models.HomeViewModel
 
 class HomeFragment : Fragment() {
 

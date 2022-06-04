@@ -1,4 +1,4 @@
-package com.josuemartinez.mainhabits
+package com.mainhabits
 
 import org.junit.Test
 

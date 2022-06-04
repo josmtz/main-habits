@@ -1,4 +1,4 @@
-package com.josuemartinez.mainhabits
+package com.mainhabits
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -7,7 +7,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.josuemartinez.mainhabits.databinding.ActivityMainBinding
+import com.mainhabits.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 

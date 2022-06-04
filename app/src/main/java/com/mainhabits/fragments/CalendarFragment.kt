@@ -1,4 +1,4 @@
-package com.josuemartinez.mainhabits.fragments
+package com.mainhabits.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,8 +8,8 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.josuemartinez.mainhabits.databinding.FragmentCalendarBinding
-import com.josuemartinez.mainhabits.models.CalendarViewModel
+import com.mainhabits.databinding.FragmentCalendarBinding
+import com.mainhabits.models.CalendarViewModel
 
 class CalendarFragment : Fragment() {
 
