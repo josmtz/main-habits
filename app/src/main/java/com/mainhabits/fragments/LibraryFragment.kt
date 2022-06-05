@@ -26,7 +26,7 @@ class LibraryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         libraryViewModel =
-            ViewModelProvider(this).get(LibraryViewModel::class.java)
+            ViewModelProvider(this)[LibraryViewModel::class.java]
 
         _binding = FragmentLibraryBinding.inflate(inflater, container, false)
         val root: View = binding.root

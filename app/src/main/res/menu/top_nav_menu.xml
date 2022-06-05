@@ -1,0 +1,38 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<!--    <item-->
+<!--        android:id="@+id/favorite"-->
+<!--        android:icon="@drawable/ic_baseline_calendar_month_24"-->
+<!--        android:title="favorite"-->
+<!--        android:contentDescription="content_description_favorite"-->
+<!--        app:showAsAction="ifRoom" />-->
+
+<!--    <item-->
+<!--        android:id="@+id/search"-->
+<!--        android:icon="@drawable/ic_baseline_calendar_month_24"-->
+<!--        android:title="search"-->
+<!--        android:contentDescription="content_description_search"-->
+<!--        app:showAsAction="ifRoom" />-->
+
+<!--    <item-->
+<!--        android:id="@+id/more"-->
+<!--        android:title="more"-->
+<!--        android:contentDescription="content_description_more"-->
+<!--        app:showAsAction="never" />-->
+    <!-- action button for search -->
+    <item android:title="search"
+        android:id="@+id/search"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_baseline_library_add_24"/>
+
+    <!-- action button for refresh -->
+    <item android:title="refresh"
+        android:id="@+id/refresh"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_baseline_home_24"/>
+
+
+</menu>
