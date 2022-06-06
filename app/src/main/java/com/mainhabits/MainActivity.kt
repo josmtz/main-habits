@@ -5,13 +5,14 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
+import androidx.navigation.NavDeepLinkBuilder
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.mainhabits.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,20 +24,20 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navView: BottomNavigationView = binding.navView
+        val bottomNavView: BottomNavigationView = binding.navView
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main)
+        val bottomNavHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main)
                 as NavHostFragment
-        val navController = navHostFragment.navController
+        val bottomNavController = bottomNavHostFragment.navController
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(
+        val bottomAppBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_home, R.id.navigation_library, R.id.navigation_calendar
             )
         )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+        setupActionBarWithNavController(bottomNavController, bottomAppBarConfiguration)
+        bottomNavView.setupWithNavController(bottomNavController)
 
 
         // calling this activity's function to
@@ -47,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         actionBar!!.title = "Main Habits"
 
         // providing subtitle for the ActionBar
-        actionBar.subtitle = "Manage your daily habits"
+//        actionBar.subtitle = "The system to build daily habits"
 
         // adding icon in the ActionBar
 //        actionBar.setIcon(R.drawable.app_logo)
@@ -56,8 +57,6 @@ class MainActivity : AppCompatActivity() {
         actionBar.setDisplayUseLogoEnabled(true)
         actionBar.setDisplayShowHomeEnabled(true)
     }
-
-
     // method to inflate the options menu when
     // the user opens the menu for the first time
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -69,9 +68,19 @@ class MainActivity : AppCompatActivity() {
     // happen when user clicks on the action buttons
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.search -> Toast.makeText(this, "Search Clicked", Toast.LENGTH_SHORT).show()
-            R.id.refresh -> Toast.makeText(this, "Refresh Clicked", Toast.LENGTH_SHORT).show()
+            R.id.settings ->
+               clickSettings()
+//                Toast.makeText(this, "Search Clicked", Toast.LENGTH_SHORT).show()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    fun clickSettings(){
+        val pendingIntent = NavDeepLinkBuilder(this.applicationContext)
+            .setGraph(R.navigation.mobile_navigation)
+            .setDestination(R.id.navigation_settings)
+            .createPendingIntent()
+
+        pendingIntent.send()
     }
 }
