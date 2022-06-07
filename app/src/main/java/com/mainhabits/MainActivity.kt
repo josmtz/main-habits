@@ -4,40 +4,52 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.add
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import androidx.navigation.NavDeepLinkBuilder
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.ui.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.mainhabits.databinding.ActivityMainBinding
+import com.mainhabits.fragments.SettingsFragment
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
-        val bottomNavView: BottomNavigationView = binding.navView
+        val bottomNavView: BottomNavigationView = binding.bottomNavView
+//        val toolbar: androidx.appcompat.widget.Toolbar = binding.toolbar
 
-        val bottomNavHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main)
+
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main)
                 as NavHostFragment
-        val bottomNavController = bottomNavHostFragment.navController
+        val navController = navHostFragment.navController
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        val bottomAppBarConfiguration = AppBarConfiguration(
+        appBarConfiguration = AppBarConfiguration(
+//            navController.graph
             setOf(
-                R.id.navigation_home, R.id.navigation_library, R.id.navigation_calendar
+                R.id.navigation_home,
+                R.id.navigation_library,
+                R.id.navigation_calendar
             )
         )
-        setupActionBarWithNavController(bottomNavController, bottomAppBarConfiguration)
-        bottomNavView.setupWithNavController(bottomNavController)
+        bottomNavView.setupWithNavController(navController)
+//        toolbar.setupWithNavController(navController, appBarConfiguration)
+//        setupActionBarWithNavController(navController, appBarConfiguration)
+
+
 
 
         // calling this activity's function to
@@ -56,6 +68,9 @@ class MainActivity : AppCompatActivity() {
         // methods to display the icon in the ActionBar
         actionBar.setDisplayUseLogoEnabled(true)
         actionBar.setDisplayShowHomeEnabled(true)
+
+        setContentView(binding.root)
+
     }
     // method to inflate the options menu when
     // the user opens the menu for the first time
@@ -67,20 +82,18 @@ class MainActivity : AppCompatActivity() {
     // methods to control the operations that will
     // happen when user clicks on the action buttons
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val settingsFragment = SettingsFragment()
         when (item.itemId) {
             R.id.settings ->
-               clickSettings()
-//                Toast.makeText(this, "Search Clicked", Toast.LENGTH_SHORT).show()
+                supportFragmentManager.commit {
+//                    replace<SettingsFragment>(R.id.nav_host_fragment_activity_main)
+                    replace(R.id.nav_host_fragment_activity_main, settingsFragment)
+//                    setReorderingAllowed(true)
+                    addToBackStack(true.toString()) // name can be null
+                }
+//                Toast.makeText(this, "Settings Clicked", Toast.LENGTH_SHORT).show()
         }
         return super.onOptionsItemSelected(item)
     }
 
-    fun clickSettings(){
-        val pendingIntent = NavDeepLinkBuilder(this.applicationContext)
-            .setGraph(R.navigation.mobile_navigation)
-            .setDestination(R.id.navigation_settings)
-            .createPendingIntent()
-
-        pendingIntent.send()
-    }
 }
