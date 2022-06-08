@@ -1,5 +1,6 @@
 package com.mainhabits
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -15,6 +16,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.mainhabits.activities.SettingsActivity
 import com.mainhabits.databinding.ActivityMainBinding
 import com.mainhabits.fragments.SettingsFragment
 
@@ -85,7 +87,9 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.settings ->
-                Toast.makeText(this, "Settings Clicked", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, SettingsActivity::class.java))
+
+//                Toast.makeText(this, "Settings Clicked", Toast.LENGTH_SHORT).show()
         }
         return super.onOptionsItemSelected(item)
     }
