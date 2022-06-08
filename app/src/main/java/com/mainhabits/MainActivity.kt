@@ -3,6 +3,7 @@ package com.mainhabits
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
@@ -82,18 +83,13 @@ class MainActivity : AppCompatActivity() {
     // methods to control the operations that will
     // happen when user clicks on the action buttons
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val settingsFragment = SettingsFragment()
         when (item.itemId) {
             R.id.settings ->
-                supportFragmentManager.commit {
-//                    replace<SettingsFragment>(R.id.nav_host_fragment_activity_main)
-                    replace(R.id.nav_host_fragment_activity_main, settingsFragment)
-//                    setReorderingAllowed(true)
-                    addToBackStack(true.toString()) // name can be null
-                }
-//                Toast.makeText(this, "Settings Clicked", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Settings Clicked", Toast.LENGTH_SHORT).show()
         }
         return super.onOptionsItemSelected(item)
     }
+
+
 
 }
