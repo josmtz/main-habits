@@ -107,4 +107,7 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="habits_text">Habits</string>
+    <string name="routines_text">Routines</string>
+    <string name="sessions_text">Sessions</string>
 </resources>
