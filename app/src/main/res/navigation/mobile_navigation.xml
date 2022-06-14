@@ -10,48 +10,6 @@
         android:name="com.mainhabits.MainActivity"
         android:label="MainActivity" />
 
-    <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.mainhabits.fragments.HomeFragment"
-        android:label="Home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_navigation_home_to_navigation_library"
-            app:destination="@id/navigation_library" />
-        <action
-            android:id="@+id/action_navigation_home_to_settingsFragment"
-            app:destination="@id/navigation_settings" />
-        <action
-            android:id="@+id/action_navigation_home_to_navigation_calendar"
-            app:destination="@id/navigation_calendar" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/navigation_library"
-        android:name="com.mainhabits.fragments.LibraryFragment"
-        android:label="Library"
-        tools:layout="@layout/fragment_library" >
-        <action
-            android:id="@+id/action_navigation_library_to_navigation_settings"
-            app:destination="@id/navigation_settings" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/navigation_calendar"
-        android:name="com.mainhabits.fragments.CalendarFragment"
-        android:label="Calendar"
-        tools:layout="@layout/fragment_calendar" >
-        <action
-            android:id="@+id/action_navigation_calendar_to_navigation_settings"
-            app:destination="@id/navigation_settings" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/navigation_settings"
-        android:name="com.mainhabits.fragments.SettingsFragment"
-        android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" />
-
     <activity
         android:id="@+id/settingsActivity"
         android:name="com.mainhabits.activities.SettingsActivity"

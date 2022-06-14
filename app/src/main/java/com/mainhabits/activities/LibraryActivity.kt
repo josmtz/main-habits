@@ -2,6 +2,8 @@ package com.mainhabits.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.navigation.ui.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -45,7 +47,11 @@ class LibraryActivity : AppCompatActivity() {
             false
         })
 
-
-
+        // use ActionBar utility methods
+        val actionBar = supportActionBar
+        // providing title for the ActionBar
+        actionBar!!.title = "Library"
     }
+
+
 }
