@@ -39,6 +39,7 @@ captures/
 # IntelliJ
 *.iml
 # Idea files
+.idea/misc.xml
 .idea
 
 # Keystore files
@@ -74,3 +75,4 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+
