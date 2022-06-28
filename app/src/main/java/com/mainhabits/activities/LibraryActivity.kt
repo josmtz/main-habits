@@ -2,17 +2,21 @@ package com.mainhabits.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import androidx.navigation.ui.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView
+import com.google.android.material.tabs.TabLayoutMediator
 import com.mainhabits.MainActivity
-import com.mainhabits.databinding.ActivityLibraryBinding
 import com.mainhabits.R
+import com.mainhabits.adapters.LibraryAdapter
+import com.mainhabits.databinding.ActivityLibraryBinding
 
+
+val tabsArray = arrayOf(
+    "Habits",
+    "Routines",
+    "Sessions"
+)
 
 class LibraryActivity : AppCompatActivity() {
 
@@ -51,6 +55,19 @@ class LibraryActivity : AppCompatActivity() {
         val actionBar = supportActionBar
         // providing title for the ActionBar
         actionBar!!.title = "Library"
+
+        // Use Adapter
+        val viewPager = binding.libraryViewPager
+        val tabLayout = binding.libraryTabLayout
+
+        val adapter = LibraryAdapter(supportFragmentManager, lifecycle)
+        viewPager.adapter = adapter
+
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            tab.text = tabsArray[position]
+        }.attach()
+        
+
     }
 
 
