@@ -23,7 +23,7 @@ class HabitsFragment : Fragment() {
         _binding = FragmentHabitsBinding.inflate(inflater, container, false)
 
 
-        binding.fab.setOnClickListener { view ->
+        binding.habitsFab.setOnClickListener { view ->
             Snackbar.make(view, "Create a habit", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
