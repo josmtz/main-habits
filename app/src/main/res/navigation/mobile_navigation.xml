@@ -14,5 +14,24 @@
         android:id="@+id/settingsActivity"
         android:name="com.mainhabits.activities.SettingsActivity"
         android:label="SettingsActivity" />
+    <activity
+        android:id="@+id/libraryActivity"
+        android:name="com.mainhabits.activities.LibraryActivity"
+        android:label="activity_library"
+        tools:layout="@layout/activity_library" />
+    <fragment
+        android:id="@+id/habitsFragment"
+        android:name="com.mainhabits.fragments.HabitsFragment"
+        android:label="fragment_habits"
+        tools:layout="@layout/fragment_habits" >
+        <action
+            android:id="@+id/action_habitsFragment_to_createHabitsFragment"
+            app:destination="@id/createHabitsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createHabitsFragment"
+        android:name="com.mainhabits.fragments.CreateHabitsFragment"
+        android:label="fragment_create_habits"
+        tools:layout="@layout/fragment_create_habits" />
 
 </navigation>
