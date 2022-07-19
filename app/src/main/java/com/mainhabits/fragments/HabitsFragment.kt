@@ -39,7 +39,11 @@ class HabitsFragment : Fragment() {
 
             Snackbar.make(view, "Create a habit", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
+
+            binding.habitsFab.visibility = View.GONE
         }
+
+
 
 
         return binding.root
